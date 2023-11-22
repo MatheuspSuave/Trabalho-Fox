@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Fotos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            background-color: #ccc;
+            margin: 0 2px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            background-color: #f90;
+            color: white;
+        }
+
+        .comment-box {
+            width: 80%;
+            margin: 10px auto;
+        }
+
+        .comment-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Avalie as Fotos</h1>
+
+    <div class="photo-container">
+        <!-- Foto 1 -->
+        <div>
+            <img src="WhatsApp Image 2023-11-22 at 15.11.44.jpeg" alt="Foto 1" class="photo">
+            <div class="rating">
+                <input type="radio" name="rating1" id="star1" value="5">
+                <label for="star1">☆</label>
+                <input type="radio" name="rating1" id="star2" value="4">
+                <label for="star2">☆</label>
+                <input type="radio" name="rating1" id="star3" value="3">
+                <label for="star3">☆</label>
+                <input type="radio" name="rating1" id="star4" value="2">
+                <label for="star4">☆</label>
+                <input type="radio" name="rating1" id="star5" value="1">
+                <label for="star5">☆</label>
+            </div>
+            <div class="comment-box">
+                <textarea placeholder="Escreva seu comentário aqui..."></textarea>
+            </div>
+            <button class="comment-btn">Enviar Anonimamente</button>
+        </div>
+
+        <!-- Foto 2 -->
+        <div>
+            <img src="WhatsApp Image 2023-11-22 at 15.12.20.jpeg" alt="Foto 2" class="photo">
+            <div class="rating">
+                <input type="radio" name="rating2" id="star6" value="5">
+                <label for="star6">☆</label>
+                <input type="radio" name="rating2" id="star7" value="4">
+                <label for="star7">☆</label>
+                <input type="radio" name="rating2" id="star8" value="3">
+                <label for="star8">☆</label>
+                <input type="radio" name="rating2" id="star9" value="2">
+                <label for="star9">☆</label>
+                <input type="radio" name="rating2" id="star10" value="1">
+                <label for="star10">☆</label>
+            </div>
+            <div class="comment-box">
+                <textarea placeholder="Escreva seu comentário aqui..."></textarea>
+            </div>
+            <button class="comment-btn">Enviar Anonimamente</button>
+        </div>
+
+        <!-- Foto 3 -->
+        <div>
+            <img src="WhatsApp Image 2023-11-22 at 15.12.40.jpeg" alt="Foto 3" class="photo">
+            <div class="rating">
+                <input type="radio" name="rating3" id="star11" value="5">
+                <label for="star11">☆</label>
+                <input type="radio" name="rating3" id="star12" value="4">
+                <label for="star12">☆</label>
+                <input type="radio" name="rating3" id="star13" value="3">
+                <label for="star13">☆</label>
+                <input type="radio" name="rating3" id="star14" value="2">
+                <label for="star14">☆</label>
+                <input type="radio" name="rating3" id="star15" value="1">
+                <label for="star15">☆</label>
+            </div>
+            <div class="comment-box">
+                <textarea placeholder="Escreva seu comentário aqui..."></textarea>
+            </div>
+            <button class="comment-btn">Enviar Anonimamente</button>
+        </div>
+    </div>
+    <a href="home.html">Voltar para a Home</a>
+</body>
+</html>

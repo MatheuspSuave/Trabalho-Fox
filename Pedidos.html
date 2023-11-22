@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pedidos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        #order-input {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #place-order, #view-orders {
+            background-color: #fff;
+            color: #4CAF50;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #order-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .order {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            color: black; 
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registro de Sugestões</h2>
+
+<input type="text" id="order-input" placeholder="Digite o pedido">
+
+<button id="place-order">Fazer Sugestões</button>
+<button id="view-orders">Ver Sugestões</button>
+
+<ul id="order-list"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const orderInput = document.getElementById('order-input');
+        const placeOrderButton = document.getElementById('place-order');
+        const viewOrdersButton = document.getElementById('view-orders');
+        const orderList = document.getElementById('order-list');
+
+        const orders = [];
+
+        placeOrderButton.addEventListener('click', function () {
+            const orderText = orderInput.value.trim();
+            if (orderText !== '') {
+                const timestamp = new Date().toLocaleString();
+                const order = { item: orderText, quantity: 1, timestamp: timestamp };
+                orders.push(order);
+                updateOrderList();
+                orderInput.value = '';
+            }
+        });
+
+        viewOrdersButton.addEventListener('click', function () {
+            if (orders.length === 0) {
+                alert('Nenhum pedido feito.');
+            } else {
+                const orderDetails = orders.map(order => `${order.timestamp}: ${order.quantity}x ${order.item}`);
+                alert('Pedidos:\n' + orderDetails.join('\n'));
+            }
+        });
+
+        function updateOrderList() {
+
+            orderList.innerHTML = '';
+
+
+            orders.forEach(function (order) {
+                const orderItem = document.createElement('li');
+                orderItem.className = 'order';
+                orderItem.textContent = `${order.timestamp}: ${order.quantity}x ${order.item}`;
+                orderList.appendChild(orderItem);
+            });
+        }
+    });
+</script>   
+<div style="text-align: center; margin-top: 20px;">
+    <a href="home.html">Voltar para a Home</a>
+</div>
+
+</body>
+</html>

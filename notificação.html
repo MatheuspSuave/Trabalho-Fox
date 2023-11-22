@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Notificações</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50; 
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        #notification-input {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #send-notification, #read-notifications {
+            background-color: #fff;
+            color: #4CAF50;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #notification-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .notification {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            color: black; 
+        }
+    </style>
+</head>
+<body>
+
+<h2>Envio e Leitura de Atualizaçõoes</h2>
+
+<input type="text" id="notification-input" placeholder="Digite sua notificação">
+
+<button id="send-notification">Enviar Atualizaçõoes</button>
+<button id="read-notifications">Ler Atualizaçõoes</button>
+
+<ul id="notification-list"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const notificationInput = document.getElementById('notification-input');
+        const sendNotificationButton = document.getElementById('send-notification');
+        const readNotificationsButton = document.getElementById('read-notifications');
+        const notificationList = document.getElementById('notification-list');
+
+        const notifications = [];
+
+        sendNotificationButton.addEventListener('click', function () {
+            const notificationText = notificationInput.value.trim();
+            if (notificationText !== '') {
+                const timestamp = new Date().toLocaleString();
+                const notification = { text: notificationText, timestamp: timestamp };
+                notifications.push(notification);
+                updateNotificationList();
+                notificationInput.value = '';
+            }
+        });
+
+        readNotificationsButton.addEventListener('click', function () {
+            if (notifications.length === 0) {
+                alert('Nenhuma notificação disponível.');
+            } else {
+                const messages = notifications.map(notification => `${notification.timestamp}: ${notification.text}`);
+                alert('Notificações:\n' + messages.join('\n'));
+            }
+        });
+
+        function updateNotificationList() {
+           
+            notificationList.innerHTML = '';
+
+            notifications.forEach(function (notification) {
+                const notificationItem = document.createElement('li');
+                notificationItem.className = 'notification';
+                notificationItem.textContent = `${notification.timestamp}: ${notification.text}`;
+                notificationList.appendChild(notificationItem);
+            });
+        }
+    });
+</script>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="home.html">Voltar para a Home</a>
+</div>
+
+</body>
+</html>

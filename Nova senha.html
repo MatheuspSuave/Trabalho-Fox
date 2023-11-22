@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Recuperação de Senha</h2>
+    <p>Informe a nova senha e repita para confirmar.</p>
+
+    <form action="home.html" method="post">
+        <label for="novaSenha">Nova Senha:</label>
+        <input type="password" id="novaSenha" name="novaSenha" class="login-input" placeholder="Nova Senha" required>
+
+        <label for="repetirSenha">Repetir Nova Senha:</label>
+        <input type="password" id="repetirSenha" name="repetirSenha" class="login-input" placeholder="Repetir Nova Senha" required>
+
+        <button type="submit" class="login-button">Mudar senha</button>
+    </form>
+
+    <p><a href="Untitled-1.html">Voltar para a tela de Login</a></p>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="home.html">Voltar para a Home</a>
+</div>
+
+</body>
+</html>
